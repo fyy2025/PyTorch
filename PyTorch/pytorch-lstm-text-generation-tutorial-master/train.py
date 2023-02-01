@@ -27,7 +27,7 @@ def train(dataset, model, args):
             y_pred, (state_h, state_c) = model(x, (state_h, state_c))
             loss = criterion(y_pred.transpose(1, 2), y)
 
-            state_h = state_h.detach()
+            state_h = state_h.detach() #detached from the computational graph
             state_c = state_c.detach()
 
             loss.backward()
